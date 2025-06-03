@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CinemaVerse - Your Movie Destination</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="app">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-logo">
+                    <h1>CinemaVerse</h1>
+                </div>
+                <div class="navbar-search">
+                    <input type="text" id="search-input" placeholder="Filmləri axtarın...">
+                    <button id="search-button"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="navbar-menu">
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="home">Ev</a></li>
+                        <li><a href="#" class="nav-link" data-page="categories">Kateqoriyalar</a></li>
+                        <li><a href="#" class="nav-link" data-page="watchlist">İzləmə siyahısı</a></li>
+                        <li><a href="#" class="nav-link" data-page="login">Daxil ol</a></li>
+                        <li><a href="#" class="nav-link" data-page="signup">Qeydiyyat</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+        <div id="pages-container">
+            <div class="page" id="home-page">
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <h1>CinemaVerse-ə xoş gəlmisiniz</h1>
+                        <p>Dünyanın ən yaxşı filmlərini kəşf edin</p>
+                        <button class="cta-button" data-page="categories">Filmlərə baxın</button>
+                    </div>
+                </div>
+
+                <section class="section">
+                    <h2 class="section-title">Trend Filmlər</h2>
+                    <div class="movies-grid" id="trending-movies"></div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Populyar Filmlər</h2>
+                    <div class="movies-grid" id="popular-movies"></div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Ən Reytinqli Filmlər</h2>
+                    <div class="movies-grid" id="top-rated-movies"></div>
+                </section>
+            </div>
+
+            <div class="page" id="movie-details-page">
+                <div class="movie-details-container">
+                    <div class="movie-backdrop">
+                        <div class="movie-backdrop-overlay"></div>
+                        <img id="movie-backdrop" src="" alt="Movie backdrop">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-poster">
+                            <img id="movie-poster" src="" alt="Movie poster">
+                        </div>
+                        <div class="movie-data">
+                            <h1 id="movie-title"></h1>
+                            <div class="movie-meta">
+                                <span id="movie-year"></span>
+                                <span id="movie-runtime"></span>
+                                <span id="movie-rating"></span>
+                            </div>
+                            <div class="movie-genres" id="movie-genres"></div>
+                            <p id="movie-overview"></p>
+                            <div class="movie-actions">
+                                <button class="action-button" id="add-to-watchlist">
+                                    <i class="fas fa-bookmark"></i>İzləmə siyahısına əlavə edin
+                                </button>
+                                <button class="action-button">
+                                    <i class="fas fa-play"></i> Treyleri izləyin
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="movie-extra">
+                        <div class="movie-cast">
+                            <h3>Aktyorlar</h3>
+                            <div class="cast-grid" id="movie-cast"></div>
+                        </div>
+                        <div class="movie-similar">
+                            <h3>Oxşar Filmlər</h3>
+                            <div class="movies-grid" id="similar-movies"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page" id="categories-page">
+                <div class="categories-header">
+                    <h1>Film kateqoriyaları</h1>
+                    <p>Filmləri janra görə nəzərdən keçirin</p>
+                </div>
+                <div class="genres-grid" id="genres-grid"></div>
+                <div class="category-results">
+                    <h2 id="category-title">Bütün Filmlər</h2>
+                    <div class="movies-grid" id="category-movies"></div>
+                </div>
+            </div>
+            <div class="page" id="watchlist-page">
+                <div class="watchlist-header">
+                    <h1>İzləmə Siyahınız</h1>
+
+                </div>
+                <div class="watchlist-container">
+                    <div class="movies-grid" id="watchlist-movies"></div>
+                    <div class="empty-watchlist" id="empty-watchlist">
+                        <i class="fas fa-film"></i>
+                        <h2>Baxış siyahınız boşdur</h2>
+                        <p>Filmləri burada görmək üçün izləmə siyahınıza əlavə edin</p>
+                        <button class="cta-button" data-page="home">Filmlərə baxın</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="login-page">
+                <div class="auth-container">
+                    <div class="auth-form">
+                        <h1>Daxil ol</h1>
+                        <form id="login-form">
+                            <div class="form-group">
+                                <label for="login-email">E-poçt</label>
+                                <input type="email" id="login-email" placeholder="Enter your email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="login-password">Parol</label>
+                                <input type="password" id="login-password" placeholder="Enter your password" required>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="auth-button">Daxil ol</button>
+                            </div>
+                            <div class="form-footer">
+                                <p>Hesabınız yoxdur? <a href="#" class="nav-link" data-page="signup">eydiyyatdan
+                                        keçin</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page" id="signup-page">
+                <div class="auth-container">
+                    <div class="auth-form">
+                        <h1>Qeydiyyatdan keçin</h1>
+                        <form id="signup-form">
+                            <div class="form-group">
+                                <label for="signup-name">Tam adı</label>
+                                <input type="text" id="signup-name" placeholder="Tam adınızı daxil edin" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-email">E-poçt</label>
+                                <input type="email" id="signup-email" placeholder="E-poçtunuzu daxil edin" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-password">Parol</label>
+                                <input type="password" id="signup-password" placeholder="Parol yaradın" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-confirm">Parolu təsdiqləyin</label>
+                                <input type="password" id="signup-confirm" placeholder="Parolunuzu təstiqləyin"
+                                    required>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="auth-button">Sign Up</button>
+                            </div>
+                            <div class="form-footer">
+                                <p>AArtıq hesabınız var? <a href="#" class="nav-link" data-page="login">Daxil ol</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <h2>CinemaVerse</h2>
+                    <p>Sizin son film təyinatınız</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Naviqasiya</h3>
+                        <ul>
+                            <li><a href="#" class="nav-link" data-page="home">Ev</a></li>
+                            <li><a href="#" class="nav-link" data-page="categories">Kateqoriyalar</a></li>
+                            <li><a href="#" class="nav-link" data-page="watchlist">İzləmə siyahısı</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Hesab</h3>
+                        <ul>
+                            <li><a href="#" class="nav-link" data-page="login">Daxil ol</a></li>
+                            <li><a href="#" class="nav-link" data-page="signup">Qeydiyyatdan keç</a></li>
+                            <li><a href="#" class="nav-link" data-page="watchlist">Mənim İzləmə Siyahım</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Hüquqil</h3>
+                        <ul>
+                            <li><a href="#">Məxfilik Siyasəti</a></li>
+                            <li><a href="#">Xidmət Şərtləri</a></li>
+                            <li><a href="#">Kuki Siyasəti</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <h3>Bizi İzləyin</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 CinemaVerse. Bütün hüquqlar qorunur. TMDB API ilə təchiz edilmişdir</p>
+            </div>
+        </footer>
+        <div class="loading-spinner" id="loading-spinner">
+            <div class="spinner"></div>
+        </div>
+
+        <div class="toast" id="toast"></div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
