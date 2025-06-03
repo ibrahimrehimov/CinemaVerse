@@ -441,7 +441,7 @@ function handleSignup(e) {
 
   updateAuthUI();
 
-  showToast('Account created successfully!');
+  showToast('Hesab uğurla yaradıldı!');
   showPage('home');
 }
 
@@ -469,7 +469,7 @@ function handleLogin(e) {
 
   updateAuthUI();
 
-  showToast('Logged in successfully!');
+  showToast('Uğurla daxil olundu!');
   showPage('home');
 }
 
@@ -487,7 +487,7 @@ function handleLogout() {
   updateWatchlistUI();
 
 
-  showToast('Logged out successfully!');
+  showToast('Uğurla çıxıldı!');
   showPage('home');
 }
 
@@ -497,12 +497,12 @@ function updateAuthUI() {
 
   if (currentUser) {
 
-    loginLink.textContent = `Hello, ${currentUser.name}`;
+    loginLink.textContent = `Salam, ${currentUser.name}`;
     loginLink.removeAttribute('data-page');
     loginLink.href = '#';
 
 
-    signupLink.textContent = 'Logout';
+    signupLink.textContent = 'Çıxın';
     signupLink.removeAttribute('data-page');
     signupLink.href = '#';
     signupLink.addEventListener('click', handleLogout);
